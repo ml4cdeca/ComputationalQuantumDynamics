@@ -2,6 +2,8 @@
 \usepackage{newunicodechar}
 \usepackage{cite}
 \usepackage{braket}
+\usepackage{graphicx}
+\graphicspath{ {./figures/} }
 \newcommand{\hp}{H$_2^+$}
 \newcommand{\gr}{$\ket{g}$}
 
@@ -18,7 +20,7 @@
 
 
 
-\section{H$_2^+$ Eigenstates}
+\section{H$_2^+$ vibrational eigenstates}
 As a first part of the analysis the vibrational eigenstates of \hp in the 
 \gr state were calculated. To do so the Hamiltonian was represented on a grid and by using direct diagonalization solved.
 The general form of the hamiltonian is given by 
@@ -36,7 +38,12 @@ The (time-independent) Schr\"odinger-equation (SDE) is now solved using a discre
    \vdots&&&&&\\
   \end{array} } \right)
 \end{equation}
-
+\begin{figure}
+    \centering
+    \includegraphics[width=1\textwidth]{vibEigenstates.eps}
+    \caption{Vibrational eigenstates of $V_{\ket{g}}$ }
+    \label{fig:vib}
+\end{figure}
 \bibliographystyle{plain}
 \bibliography{references}
 \end{document}
