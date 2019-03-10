@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{booktabs}
 \usepackage{float}
+\usepackage{subcaption}
 
 \restylefloat{table}
 \graphicspath{{./figures/}}
@@ -22,26 +23,16 @@
 \date{March 2019}
 
 \begin{document}
+\bibliographystyle{unsrt}
 
 \maketitle
 \begin{abstract}
-In this report we discuss the dissociative dynamics of the \hp ion under influence of an external IR-laser pulse. First on the vibrational eigenstates in the \hp electronic ground state are calculated. Following this the time evolution with and without the IR-pulse are simulated.
+In this report we discuss the dissociative dynamics of the \hp ion under influence of an external IR-laser pulse. First on the vibrational eigenstates in the \hp electronic ground state are calculated. Following this the time evolution with and without the IR-pulse are simulated and a dissociation momentum analysis is done. 
 \end{abstract}
 
 
 \section{Introduction}
-The starting point of the system discussed in the following is a \hp  ion in its electronic ground state. It is produced by a XUV laser pulse, that ionizes a H$_2$ molecule in its electronic and vibrational ground state. The so produced ion is in its electronic ground state \gr. However the vibrational wave packet is, according to the Franck-Cordon principle, represented by a superposition of excited \gr \ vibrational states. The initial wave packet of the \hp is the H$_2$ function. It moves on the \gr \ state until a second IR-pulse, with delay time $\tau$, leads to coupling with the \us \ state and the dissociation of the ion. The first vibrational eigenenergies are:
-\begin{table}[H]\centering\label{tab:vibEnergies}
-\begin{tabular}{@{}ccc@{}}
-\toprule
-n & a.u. & eV \\ \midrule
-0&-0.0990&-2.693\\
-1&-0.0918&-2.498\\
-2&-0.0850&-2.312\\
-3&-0.0784&-2.134\\\bottomrule
-\end{tabular}
-\caption{Eigenenergies in atomic units and eV}
-\end{table}
+The starting point of the system discussed in the following is a \hp  ion in its electronic ground state. It is produced by an XUV laser pulse, that ionizes a H$_2$ molecule in its electronic and vibrational ground state. The so produced ion is in its electronic ground state \gr. However the vibrational wave packet is, according to the Franck-Cordon principle, represented by a superposition of excited \gr \ vibrational states. The initial wave packet of the \hp is the H$_2$ function. It moves on the \gr \ state until a second IR-pulse, with delay time $\tau$, leads to coupling with the \us \ state and the dissociation of the ion \cite{PhysRevA.93.012507,c107696046f943e78de27c893d23ac2f}.
 \section{H$_2^+$ vibrational eigenstates}
 As a first part of the analysis the vibrational eigenstates of \hp\ in the 
 \gr\ state were calculated. To do so the Hamiltonian was represented on a grid and by using direct diagonalization solved.
@@ -60,24 +51,39 @@ The (time-independent) Schr\"odinger-equation (SDE) is now solved using a discre
    \vdots&&&&&\\
   \end{array} } \right)
 \end{equation}
-\begin{figure}\label{fig:vibStates}
+\begin{figure}[htb]
     \centering
     \includegraphics[width=1\textwidth]{vibEigenstates.eps}
-    \caption{Vibrational eigenstates of $V_{\ket{g}}$ }
+    \caption{Vibrational eigenstates of $V_{\ket{g}}$ }\label{fig:vibStates}
 \end{figure}
-As seen in \ref{fig:vib} the eigenvalues appear with a same spacing as the ones of the unperturbed quantum oscillator for lower levels. However for higher orders, the spacing shrinks, as the potential deviates more from an oscillator curve. In addition to that in \ref{fig:vibStates} a small sample of the corresponding eigenfunctions can be seen.
-
-
+As seen in Figure \ref{fig:vibStates} the eigenvalues appear with a same spacing as the ones of the unperturbed quantum oscillator for lower levels. However for higher orders, the spacing shrinks, as the potential deviates more from an oscillator curve. The lowest vibrational eigenenergies are:
+\begin{table}[H]\centering\label{tab:vibEnergies}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+n & a.u. & eV \\ \midrule
+0&-0.0990&-2.693\\
+1&-0.0918&-2.498\\
+2&-0.0850&-2.312\\
+3&-0.0784&-2.134\\\bottomrule
+\end{tabular}
+\caption{Eigenenergies in atomic units and eV}
+\end{table}
 
 \section{Time evolution without the laser coupling}
-To simulate the vibrational dynamics of H$_2^+$, the initial H$_2$ wave function is used and propagated on the \gr\ surface. This corresponds to the dynamics of the system before the arrival of the IR-laser pulse. A split-step algorithm was used, as introduced in the lecture. The Hamiltonian describing the system, is equal to \ref{eqn:generalHamiltonian}.
+To simulate the vibrational dynamics of H$_2^+$, the initial H$_2$ wave function is used and propagated on the \gr\ surface. This corresponds to the dynamics of the system before the arrival of the IR-laser pulse. A split-step algorithm for the propagation was used, as introduced in the lecture. The Hamiltonian describing the system, is equal to \eqref{eqn:generalHamiltonian}.
 The animation can be found under the name "propagation\_without\_IR-Laser.mp4"
 in the folder.
-Looking at the propagation, one oscillation period of the wave packet is visible. However, afterwards the wave packet appears to oscillate no further with only peaks rising and falling visible.
-HIER KÖNNTE EIN ABSCHNITT ÜBER DIE INTERPRETATION UND GRÜNDE STEHEN
+Looking at the propagation, one oscillation period of the wave packet is visible. However, afterwards the wave packet appears to oscillate no further with only peaks rising and falling visible. A clear revival of the initial state is not visible (compare Fig.\ref{fig:withoutIR}).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{woIR.eps}[]
+    \caption{Time evolution of the ground state in $V_{\ket{g}}$ in atomic units}\label{fig:withoutIR}
+\end{figure}
+
+
 \section{Dissociative dynamics}
-Following the initial dynamics a IR-pulse interacts with the system. The pulse couples  the known \gr \ state with the \us \ state. The latest is an electronic excited state. Considering the influence of the laser pulse, the time dependent Schr\"odinger equation of the system is given by
-\begin{equation}
+Following the initial dynamics a IR-pulse interacts with the system. The pulse couples  the known \gr \ state with the \us \ state. The latest is an electronic excited state. Considering the influence of the laser pulse, the time dependent Schr\"odinger equation of the system is given in \cite{PhysRevA.93.012507}
+\begin{equation}\label{eqn:dissociativeDyn}
 i
 \frac{d}{dt}
 \psiv
@@ -95,7 +101,7 @@ Latest has the form of a cosine with a Gaussian envelope
 \begin{equation}
    E(t)=E_\parallel \cdot \cos(\omega t) \cdot \exp \Bigl( -\frac{\left(t-\tau\right)^2}{2\sigma^2} \Bigr)
 \end{equation}
-The time evolution of this system is solved using a split-step algorithm. In contrast to the algorithm before there are now  two coupled equations that are also time dependent. For this system the time step is given by:
+The time evolution of this system is solved using a split-step algorithm. In contrast to the algorithm before there are now  two coupled equations that, in addition, are also time dependent. For this system the time step is given by \cite{doi:10.1063/1.465362}
 \begin{equation}
 \psiv (t+\Delta t)= \exp(-i[\Delta t\ \hat{T} + \Delta t\ \hat{V}(t+\Delta t /2)]) \cdot \psiv(t)
 \end{equation}
@@ -155,7 +161,7 @@ b\\
 \end{align}
 \end{subequations}
 a and b being arbitrary values.
-With these the U and D matrices have the form of
+With these the U and D matrix have the form of
 \begin{subequations}
 \begin{equation}
 \hat U= \frac{1}{\sqrt{2}}\begin{pmatrix}
@@ -175,8 +181,20 @@ Using all the above expressions the potential step of the split step algorithm t
 \exp(-i\dt\hat V)\approx \exp(-i\dt\hat V_c/2)\cdot\hat U^*\cdot \exp(-i \dt\hat D)\cdot\hat U\cdot \exp(-i \dt\hat V_c/2)
 \end{equation}
 with which the time evolution can be solved numerically. The result of the time evolution can be found in "propagation\_with\_IR-Laser.mp4".
-
-
+The same dynamic as before is visible, however with a small wave packet appearing on the \us\ state. This leads to the conclusion that the coupling by the laser has a small influence on the system in the simulation. However, comparing with the results of \cite{PhysRevA.93.012507}, a clear separation of the ion would be expected. A possibility for the differences could be a divergence of the simulation to reality. 
+\begin{figure}
+	\centering
+	\begin{subfigure}{0.4\textwidth} % width of left subfigure
+		\includegraphics[width=\textwidth]{withIR_1.eps}
+		\caption{$|\Psi_1(x,t)|^2$} % subcaption
+	\end{subfigure}
+	\vspace{1em} % here you can insert horizontal or vertical space
+	\begin{subfigure}{0.4\textwidth} % width of right subfigure
+		\includegraphics[width=\textwidth]{withIR_2.eps}
+		\caption{$|\Psi_2(x,t)|^2$} % subcaption
+	\end{subfigure}
+	\caption{Time evolution according to \eqref{eqn:dissociativeDyn} for $\Psi_1$ and $\Psi_2$ in atomic units} 
+\end{figure}
 
 \bibliographystyle{plain}
 \bibliography{references}
