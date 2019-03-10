@@ -8,6 +8,7 @@
 \usepackage{booktabs}
 \usepackage{float}
 \usepackage{subcaption}
+\usepackage{graphicx}
 
 \restylefloat{table}
 \graphicspath{{./figures/}}
@@ -27,7 +28,7 @@
 
 \maketitle
 \begin{abstract}
-In this report we discuss the dissociative dynamics of the \hp ion under influence of an external IR-laser pulse. First on the vibrational eigenstates in the \hp electronic ground state are calculated. Following this the time evolution with and without the IR-pulse are simulated and a dissociation momentum analysis is done. 
+In this report we discuss the dissociative dynamics of the \hp ion under influence of an external IR-laser pulse. First on the vibrational eigenstates in the \hp electronic ground state are calculated. Following this the time evolution with and without the IR-pulse are simulated. 
 \end{abstract}
 
 
@@ -51,7 +52,7 @@ The (time-independent) Schr\"odinger-equation (SDE) is now solved using a discre
    \vdots&&&&&\\
   \end{array} } \right)
 \end{equation}
-\begin{figure}[htb]
+\begin{figure}
     \centering
     \includegraphics[width=1\textwidth]{vibEigenstates.eps}
     \caption{Vibrational eigenstates of $V_{\ket{g}}$ }\label{fig:vibStates}
@@ -73,11 +74,11 @@ n & a.u. & eV \\ \midrule
 To simulate the vibrational dynamics of H$_2^+$, the initial H$_2$ wave function is used and propagated on the \gr\ surface. This corresponds to the dynamics of the system before the arrival of the IR-laser pulse. A split-step algorithm for the propagation was used, as introduced in the lecture. The Hamiltonian describing the system, is equal to \eqref{eqn:generalHamiltonian}.
 The animation can be found under the name "propagation\_without\_IR-Laser.mp4"
 in the folder.
-Looking at the propagation, one oscillation period of the wave packet is visible. However, afterwards the wave packet appears to oscillate no further with only peaks rising and falling visible. A clear revival of the initial state is not visible (compare Fig.\ref{fig:withoutIR}).
-\begin{figure}[H]
+Looking at the propagation, one oscillation period of the wave packet is visible. However, afterwards the wave packet appears to oscillate no further with only peaks rising and falling visible. A clear revival of the initial state is not visible (compare to Figure \ref{fig:withoutIR}).
+\begin{figure}[htb]
     \centering
-    \includegraphics[width=1\textwidth]{woIR.eps}[]
-    \caption{Time evolution of the ground state in $V_{\ket{g}}$ in atomic units}\label{fig:withoutIR}
+    \includegraphics[width=1\textwidth]{woIR.eps}
+    \caption{Time evolution of the ground state in $V_{\ket{g}}$ without IR laser in atomic units }\label{fig:withoutIR}
 \end{figure}
 
 
@@ -184,12 +185,12 @@ with which the time evolution can be solved numerically. The result of the time 
 The same dynamic as before is visible, however with a small wave packet appearing on the \us\ state. This leads to the conclusion that the coupling by the laser has a small influence on the system in the simulation. However, comparing with the results of \cite{PhysRevA.93.012507}, a clear separation of the ion would be expected. A possibility for the differences could be a divergence of the simulation to reality. 
 \begin{figure}
 	\centering
-	\begin{subfigure}{0.4\textwidth} % width of left subfigure
+	\begin{subfigure}{0.485\textwidth} % width of left subfigure
 		\includegraphics[width=\textwidth]{withIR_1.eps}
 		\caption{$|\Psi_1(x,t)|^2$} % subcaption
 	\end{subfigure}
-	\vspace{1em} % here you can insert horizontal or vertical space
-	\begin{subfigure}{0.4\textwidth} % width of right subfigure
+	%\vspace{1em} % here you can insert horizontal or vertical space
+	\begin{subfigure}{0.485\textwidth} % width of right subfigure
 		\includegraphics[width=\textwidth]{withIR_2.eps}
 		\caption{$|\Psi_2(x,t)|^2$} % subcaption
 	\end{subfigure}
